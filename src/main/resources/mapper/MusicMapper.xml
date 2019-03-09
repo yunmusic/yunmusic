@@ -103,4 +103,22 @@
       imgurl = #{imgurl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectById" resultType="com.yun.music.vo.MusicVo">
+    SELECT m.*,s.sname,st.name AS sheetName, l.lname from t_music m
+    INNER JOIN t_singer_music sm
+    on sm.mid = m.id
+    INNER JOIN t_singer s
+    on s.sid = sm.sid
+    INNER JOIN t_sheet_music stm
+    on stm.mid = m.id
+    INNER JOIN t_sheet st
+    on st.stid = stm.stid
+    INNER JOIN t_label_music lm
+    on lm.mid = m.id
+    INNER JOIN t_label l
+    on l.lid = lm.lid
+    WHERE m.id = #{id}
+  </select>
+
 </mapper>
