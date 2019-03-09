@@ -43,10 +43,10 @@
 		</javaClientGenerator>
 
 
-		<table tableName="t_sheet" domainObjectName="Sheet" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" ></table>
 		<table tableName="t_sheet_music" domainObjectName="SheetMusic" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" ></table>
+		<!--<table tableName="t_sheet_music" domainObjectName="SheetMusic" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" ></table>
 		<table tableName="t_user_sheet" domainObjectName="UserSheet" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" ></table>
-
+-->
 
 
 	</context>

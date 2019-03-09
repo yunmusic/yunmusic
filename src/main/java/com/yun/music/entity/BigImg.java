@@ -1,9 +1,9 @@
 package com.yun.music.entity;
 
-public class SheetMusic {
+public class BigImg {
     private Integer id;
 
-    private Integer stid;
+    private String imgurl;
 
     private Integer mid;
 
@@ -15,12 +15,12 @@ public class SheetMusic {
         this.id = id;
     }
 
-    public Integer getStid() {
-        return stid;
+    public String getImgurl() {
+        return imgurl;
     }
 
-    public void setStid(Integer stid) {
-        this.stid = stid;
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl == null ? null : imgurl.trim();
     }
 
     public Integer getMid() {

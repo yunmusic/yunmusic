@@ -68,4 +68,9 @@
       imgurl = #{imgurl,jdbcType=VARCHAR}
     where stid = #{stid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectRandCount" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    FROM t_sheet ORDER BY RAND() LIMIT #{count}
+  </select>
 </mapper>
