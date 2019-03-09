@@ -24,12 +24,8 @@
     where uid = #{uid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.yun.music.entity.User">
-    insert into t_user (uid, uname, password, 
-      intro, gender, birth, headImg
-      )
-    values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{intro,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, #{birth,jdbcType=DATE}, #{headimg,jdbcType=VARCHAR}
-      )
+    insert into t_user (uname, password)
+    values (#{uname}, #{password})
   </insert>
   <insert id="insertSelective" parameterType="com.yun.music.entity.User">
     insert into t_user
@@ -114,4 +110,9 @@
       headImg = #{headimg,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+
+
+  <select id="selectByName" resultType="com.yun.music.entity.User">
+    select * from t_user where uname=#{name}
+  </select>
 </mapper>
