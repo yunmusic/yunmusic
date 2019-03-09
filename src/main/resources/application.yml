@@ -1,0 +1,13 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.8.156.64:3306/music?serverTimezone=UTC
+    username: root
+    password: doudoujun
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+
+
