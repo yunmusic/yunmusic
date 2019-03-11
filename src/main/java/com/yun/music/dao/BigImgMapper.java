@@ -16,6 +16,6 @@ public interface BigImgMapper {
     int updateByPrimaryKeySelective(BigImg record);
 
     int updateByPrimaryKey(BigImg record);
-
+    //轮播图随机推荐
     List<BigImg> selectRand();
 }

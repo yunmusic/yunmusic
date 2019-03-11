@@ -11,7 +11,7 @@ public class SheetController {
     @Autowired
     private SheetService sheetService;
 
-    @RequestMapping("sheetlist.do")
+    @RequestMapping("sheetlist.do")//获取指定数量的歌单列表
     public JsonBean randSheet(int count){
         return sheetService.randSearch(count);
     }

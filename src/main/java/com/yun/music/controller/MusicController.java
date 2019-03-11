@@ -28,6 +28,11 @@ public class MusicController {
         return musicService.findNewMusicBySize(size);
     }
 
+    @RequestMapping("/listonesheet.do")
+    public JsonBean findBySheet(int id){
+        return musicService.findMusicBySheet(id);
+    }
+
     @RequestMapping("/findhotmusic.do")
     public JsonBean findHotMusicBySize(int size){
         return musicService.findHotMusicBySize(size);

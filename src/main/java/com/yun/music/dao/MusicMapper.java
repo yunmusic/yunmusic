@@ -20,6 +20,8 @@ public interface MusicMapper {
     int updateByPrimaryKeySelective(Music record);
 
     int updateByPrimaryKey(Music record);
+    //根据歌单id查找包含的歌曲
+    List<MusicVo> selectBySheetId(int id);
 
     // 随机查询歌曲
     List<IndexMusicVo> selectBySize(int size);

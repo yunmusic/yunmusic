@@ -8,7 +8,10 @@ public interface MusicService {
 
     JsonBean findBySize(int size);
 
-    JsonBean findNewMusicBySize(int size);
+
 
     JsonBean findHotMusicBySize(int size);
+    JsonBean findNewMusicBySize(int szie);
+
+    JsonBean findMusicBySheet(int id);
 }
