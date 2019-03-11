@@ -2,6 +2,8 @@ package com.yun.music.dao;
 
 import com.yun.music.entity.Singer;
 
+import java.util.List;
+
 public interface SingerMapper {
     int deleteByPrimaryKey(Integer sid);
 
@@ -14,4 +16,7 @@ public interface SingerMapper {
     int updateByPrimaryKeySelective(Singer record);
 
     int updateByPrimaryKey(Singer record);
+
+    // 根据数量随机查询歌手
+    List<Singer> selectBySize(int size);
 }

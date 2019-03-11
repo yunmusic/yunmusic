@@ -90,4 +90,8 @@
       headImg = #{headimg,jdbcType=VARCHAR}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectBySize" resultType="com.yun.music.entity.Singer">
+    select sname, sid from t_singer order by RAND() limit #{size}
+  </select>
 </mapper>

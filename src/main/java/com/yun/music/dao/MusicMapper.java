@@ -26,4 +26,7 @@ public interface MusicMapper {
 
     // 查询新歌榜数据
     List<Music> selectNewMusic(int size);
+
+    // 根据播放量降序查询(查询飙升榜)
+    List<Music> selectHotMusic(int size);
 }

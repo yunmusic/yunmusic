@@ -133,5 +133,9 @@
   <select id="selectNewMusic" resultType="com.yun.music.entity.Music">
     select id, name from t_music order by id desc limit #{size}
   </select>
+  
+  <select id="selectHotMusic" resultType="com.yun.music.entity.Music">
+    select id, name from t_music order by clicknumber desc limit #{size}
+  </select>
 
 </mapper>

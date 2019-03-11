@@ -27,4 +27,9 @@ public class MusicController {
     public JsonBean findNewMUsicBySize(int size){
         return musicService.findNewMusicBySize(size);
     }
+
+    @RequestMapping("/findhotmusic.do")
+    public JsonBean findHotMusicBySize(int size){
+        return musicService.findHotMusicBySize(size);
+    }
 }
