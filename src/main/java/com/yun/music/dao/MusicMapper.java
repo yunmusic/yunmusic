@@ -1,7 +1,10 @@
 package com.yun.music.dao;
 
 import com.yun.music.entity.Music;
+import com.yun.music.vo.IndexMusicVo;
 import com.yun.music.vo.MusicVo;
+
+import java.util.List;
 
 public interface MusicMapper {
     int deleteByPrimaryKey(Integer id);
@@ -18,4 +21,9 @@ public interface MusicMapper {
 
     int updateByPrimaryKey(Music record);
 
+    // 随机查询歌曲
+    List<IndexMusicVo> selectBySize(int size);
+
+    // 查询新歌榜数据
+    List<Music> selectNewMusic(int size);
 }

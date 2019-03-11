@@ -17,4 +17,14 @@ public class MusicServiceImpl implements MusicService {
     public JsonBean findById(int id) {
         return JsonUtils.createJsonBean(1,musicDao.selectById(id));
     }
+
+    @Override
+    public JsonBean findBySize(int size) {
+        return JsonUtils.createJsonBean(1, musicDao.selectBySize(size));
+    }
+
+    @Override
+    public JsonBean findNewMusicBySize(int szie) {
+        return JsonUtils.createJsonBean(1, musicDao.selectNewMusic(szie));
+    }
 }

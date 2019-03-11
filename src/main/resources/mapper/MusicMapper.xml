@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.yun.music.entity.Music">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="lyric" jdbcType="VARCHAR" property="lyric" />
+    <!--<result column="lyric" jdbcType="TEXT" property="lyric" />-->
     <result column="clicknumber" jdbcType="INTEGER" property="clicknumber" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="imgurl" jdbcType="VARCHAR" property="imgurl" />
@@ -26,7 +26,7 @@
     insert into t_music (id, name, lyric, 
       clicknumber, url, imgurl
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{lyric,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{lyric},
       #{clicknumber,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{imgurl,jdbcType=VARCHAR}
       )
   </insert>
@@ -60,7 +60,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="lyric != null">
-        #{lyric,jdbcType=VARCHAR},
+        #{lyric},
       </if>
       <if test="clicknumber != null">
         #{clicknumber,jdbcType=INTEGER},
@@ -80,7 +80,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="lyric != null">
-        lyric = #{lyric,jdbcType=VARCHAR},
+        lyric = #{lyric},
       </if>
       <if test="clicknumber != null">
         clicknumber = #{clicknumber,jdbcType=INTEGER},
@@ -97,7 +97,7 @@
   <update id="updateByPrimaryKey" parameterType="com.yun.music.entity.Music">
     update t_music
     set name = #{name,jdbcType=VARCHAR},
-      lyric = #{lyric,jdbcType=VARCHAR},
+      lyric = #{lyric},
       clicknumber = #{clicknumber,jdbcType=INTEGER},
       url = #{url,jdbcType=VARCHAR},
       imgurl = #{imgurl,jdbcType=VARCHAR}
@@ -119,6 +119,19 @@
     INNER JOIN t_label l
     on l.lid = lm.lid
     WHERE m.id = #{id}
+  </select>
+
+  <select id="selectBySize" resultType="com.yun.music.vo.IndexMusicVo">
+    select mu.id, mu.name, mu.imgurl,sg.sname FROM t_music mu
+    inner join t_singer_music sm
+    on mu.id=sm.mid
+    inner join t_singer sg
+    on sg.sid=sm.sid
+    ORDER BY RAND() LIMIT #{size}
+  </select>
+
+  <select id="selectNewMusic" resultType="com.yun.music.entity.Music">
+    select id, name from t_music order by id desc limit #{size}
   </select>
 
 </mapper>
